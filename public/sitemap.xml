@@ -2,39 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <!-- Homepage -->
   <url>
     <loc>https://rahulsebastian.com/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ta" href="https://rahulsebastian.com/?lang=ta"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://rahulsebastian.com/?lang=en"/>
+    <image:image>
+      <image:loc>https://rahulsebastian.com/rahul_hero_bg.jpg</image:loc>
+      <image:title>Rahul Sebastian - Author &amp; Poet from Erode</image:title>
+      <image:caption>Rahul Sebastian, author of Ennangalin Kuppai Koodam</image:caption>
+    </image:image>
   </url>
 
   <!-- About Page -->
   <url>
     <loc>https://rahulsebastian.com/about</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rahulsebastian.com/rahul_sebastian.jpg</image:loc>
+      <image:title>Rahul Sebastian Biography</image:title>
+    </image:image>
   </url>
 
   <!-- Books Page -->
   <url>
     <loc>https://rahulsebastian.com/books</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://rahulsebastian.com/ennangalin_kuppai_koodam_real_cover.jpg</image:loc>
+      <image:title>Ennangalin Kuppai Koodam Book Cover</image:title>
+    </image:image>
   </url>
 
   <!-- Featured Book Detail: Ennangalin Kuppai Koodam -->
   <url>
     <loc>https://rahulsebastian.com/books/ennangalin-kuppai-koodam</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
@@ -42,15 +57,15 @@
   <!-- Poems & Writings Page -->
   <url>
     <loc>https://rahulsebastian.com/writings</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
   </url>
 
-  <!-- Poem Extract -->
+  <!-- Poem Extract Page -->
   <url>
     <loc>https://rahulsebastian.com/writings/ennangalin-kuppai-koodam-extract</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -58,15 +73,19 @@
   <!-- Awards & Honours Page -->
   <url>
     <loc>https://rahulsebastian.com/awards</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://rahulsebastian.com/rahul_world_record_certificate.jpg</image:loc>
+      <image:title>International Winner World Records Certificate - Rahul Sebastian</image:title>
+    </image:image>
   </url>
 
   <!-- Contact Page -->
   <url>
     <loc>https://rahulsebastian.com/contact</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
