@@ -9,7 +9,7 @@ interface SEOProps {
 }
 
 export const SEO: React.FC<SEOProps> = ({
-  title = "Rahul Sebastian | Author & Poet from Erode | ராகுல் செபாஸ்டியன் ஈரோடு",
+  title = "Rahul Sebastian | Best Erode Author, Poet & Storyteller | ராகுல் செபாஸ்டியன் ஈரோடு",
   description = "Official Website of Rahul Sebastian (Rahul Erode / ராகுல் செபாஸ்டியன்) — Best Erode Writer, Author of 'Ennangalin Kuppai Koodam' published by Nerpadapesu Publication.",
   keywords = "Rahul, Rahul Erode, Rahul Sebastian Erode, Best Erode Writer, Rahul Sebastian, ராகுல், ராகுல் ஈரோடு, ராகுல் செபாஸ்டியன் ஈரோடு, ஈரோடு சிறந்த எழுத்தாளர், Ennangalin Kuppai Koodam, எண்ணங்களின் குப்பைக் கூடம், Tamil Poet Erode",
   ogImage = "https://rahulsebastian.com/rahul_hero_bg.jpg",
@@ -17,7 +17,7 @@ export const SEO: React.FC<SEOProps> = ({
   const location = useLocation();
 
   useEffect(() => {
-    // Dynamic Title
+    // Dynamic Title Update (SXO / UX)
     document.title = title;
 
     // Dynamic Meta Description
@@ -44,12 +44,18 @@ export const SEO: React.FC<SEOProps> = ({
       ogDescription.setAttribute('content', description);
     }
 
+    // Dynamic OpenGraph Image
+    let ogImg = document.querySelector('meta[property="og:image"]');
+    if (ogImg) {
+      ogImg.setAttribute('content', ogImage);
+    }
+
     // Dynamic Canonical Link
     let canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
       canonical.setAttribute('href', `https://rahulsebastian.com${location.pathname}`);
     }
-  }, [title, description, keywords, location]);
+  }, [title, description, keywords, ogImage, location]);
 
   return null;
 };
