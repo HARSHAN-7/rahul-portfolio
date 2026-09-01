@@ -1,5 +1,5 @@
-# Robots.txt for Rahul Sebastian Author Portfolio
-# Allows all major Search Engines, AI Engines (AEO), and Generative Search Engines (GEO)
+# Robots.txt for Rahul Sebastian Official Author Portfolio
+# Grants full crawling access to Google, Bing, Yahoo, and AI Engines (AEO, GEO, AIO, SXO)
 
 User-agent: *
 Allow: /
@@ -7,9 +7,28 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 
+User-agent: Googlebot-Image
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# AI & LLM Search Engine Crawlers (AEO / GEO / AIO)
 User-agent: GPTBot
 Allow: /
 
@@ -23,6 +42,15 @@ User-agent: PerplexityBot
 Allow: /
 
 User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: FacebookExternalHit
 Allow: /
 
 Sitemap: https://rahulsebastian.com/sitemap.xml
