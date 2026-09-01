@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Flame, BookOpen, Compass, Heart, Feather } from 'lucide-react';
+import { Sparkles, Compass, Copy, Check, Share2 } from 'lucide-react';
 import { sampleQuotes } from '../data/quotesData';
 import { useLanguage } from '../context/LanguageContext';
 import { Link as RouterLink } from 'react-router-dom';
 
 export const QuotesSection: React.FC = () => {
   const { language } = useLanguage();
+  const [copiedId, setCopiedId] = useState<string | null>(null);
 
   // Category filter chips without "All" option
   const categories = [
@@ -21,6 +22,18 @@ export const QuotesSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('book-voice');
 
   const filteredQuotes = sampleQuotes.filter((q) => q.categoryKey === activeCategory);
+
+  const handleCopyQuote = (id: string, textTa: string, meaningTa: string) => {
+    const formatted = `"${textTa}"\n\nபொருள்: ${meaningTa}\n— ராகுல் செபாஸ்டியன் (எண்ணங்களின் குப்பைக் கூடம்)\nhttps://rahulsebastian.com`;
+    navigator.clipboard.writeText(formatted);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2000);
+  };
+
+  const handleShareWhatsApp = (textTa: string, meaningTa: string) => {
+    const text = `"${textTa}"\n\nபொருள்: ${meaningTa}\n— ராகுல் செபாஸ்டியன் (எண்ணங்களின் குப்பைக் கூடம்)\nhttps://rahulsebastian.com`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+  };
 
   return (
     <section className="py-14 md:py-18 bg-slate-50 text-slate-900 border-y border-slate-200 relative overflow-hidden">
@@ -83,18 +96,34 @@ export const QuotesSection: React.FC = () => {
               >
                 <div className="space-y-3">
                   
-                  {/* Category Badge & Topic */}
+                  {/* Category Badge & Topic & Action Buttons */}
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold font-serif text-[#DC2626] flex items-center gap-1.5">
                       <span>{item.emoji}</span>
                       <span>{language === 'ta' ? item.categoryTa : item.categoryEn}</span>
                     </span>
 
-                    {item.tagTa && (
-                      <span className="px-2.5 py-0.5 rounded bg-red-50 text-[#DC2626] font-mono text-[10px] font-extrabold border border-red-100 uppercase">
-                        {language === 'ta' ? item.tagTa : item.tagEn}
-                      </span>
-                    )}
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        onClick={() => handleCopyQuote(item.id, item.quoteTa, item.meaningTa)}
+                        title="Copy Quote & Meaning"
+                        className="p-1.5 rounded bg-slate-100 text-slate-700 hover:bg-[#DC2626] hover:text-white transition-colors"
+                      >
+                        {copiedId === item.id ? (
+                          <Check className="w-3.5 h-3.5 text-emerald-600" />
+                        ) : (
+                          <Copy className="w-3.5 h-3.5" />
+                        )}
+                      </button>
+
+                      <button
+                        onClick={() => handleShareWhatsApp(item.quoteTa, item.meaningTa)}
+                        title="Share on WhatsApp"
+                        className="p-1.5 rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-colors"
+                      >
+                        <Share2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   </div>
 
                   {/* Primary Quote Content */}
