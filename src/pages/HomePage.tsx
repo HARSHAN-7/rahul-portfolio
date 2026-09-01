@@ -27,7 +27,7 @@ export const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="space-y-0 pb-0 relative z-10 bg-white text-slate-900">
+    <div className="space-y-0 pb-0 relative z-10 bg-white text-slate-900 overflow-x-hidden">
       
       {/* Dynamic SEO Meta Tag Injector for Top Search & AI Rankings */}
       <SEO
@@ -40,27 +40,27 @@ export const HomePage: React.FC = () => {
       <InteractiveBookModal book={selectedModalBook} onClose={() => setSelectedModalBook(null)} />
 
       {/* ========================================================================= */}
-      {/* 1. HERO SECTION */}
+      {/* 1. HERO SECTION (OPTIMIZED FOR MOBILE & DESKTOP) */}
       {/* ========================================================================= */}
-      <section className="relative min-h-screen bg-white text-slate-900 pt-24 pb-12 flex items-center overflow-hidden border-b border-slate-200">
+      <section className="relative min-h-[90vh] sm:min-h-screen bg-white text-slate-900 pt-20 sm:pt-24 pb-12 flex items-center overflow-hidden border-b border-slate-200">
         
-        {/* Full Screen Image Canvas Layer */}
+        {/* Full Screen Image Canvas Layer - Optimized Mobile Fitting */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
           <img
             src="/rahul_hero_bg.jpg"
             alt="Rahul Sebastian Hero Background Artwork"
-            className="w-full h-full object-cover object-center bg-white"
+            className="w-full h-full object-cover object-top sm:object-center bg-white"
           />
         </div>
 
-        {/* Soft Left Side White Gradient Overlay */}
-        <div className="absolute inset-y-0 left-0 w-full sm:w-2/3 md:w-3/5 lg:w-1/2 bg-gradient-to-r from-white via-white/95 to-transparent pointer-events-none z-10" />
+        {/* Soft Mobile & Desktop White Gradient Overlay for Perfect Contrast */}
+        <div className="absolute inset-0 sm:inset-y-0 sm:left-0 w-full sm:w-2/3 md:w-3/5 lg:w-1/2 bg-gradient-to-b sm:bg-gradient-to-r from-white via-white/95 to-transparent pointer-events-none z-10" />
 
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 w-full">
-          <div className="max-w-md sm:max-w-lg space-y-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-20 w-full">
+          <div className="max-w-xs sm:max-w-lg space-y-3 sm:space-y-4">
             
             {/* Top Ribbon */}
-            <div className="flex items-center gap-2 text-[10px] font-mono text-[#DC2626] font-extrabold uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-[9px] sm:text-[10px] font-mono text-[#DC2626] font-extrabold uppercase tracking-widest">
               <Sparkles className="w-3.5 h-3.5 text-[#DC2626]" />
               <span>{language === 'ta' ? 'எழுத்து · சிந்தனை · தாக்கம்' : 'WORDS · IDEAS · IMPACT'}</span>
             </div>
@@ -69,35 +69,35 @@ export const HomePage: React.FC = () => {
             <div className="space-y-0.5">
               {language === 'ta' ? (
                 <>
-                  <h2 className="font-serif text-base sm:text-xl lg:text-2xl font-bold leading-snug text-slate-900">
+                  <h2 className="font-serif text-sm sm:text-xl lg:text-2xl font-bold leading-snug text-slate-900">
                     எழுத்தில் பிறக்கும் உலகங்கள்.
                   </h2>
-                  <h2 className="font-serif text-base sm:text-xl lg:text-2xl font-bold leading-snug text-[#DC2626]">
+                  <h2 className="font-serif text-sm sm:text-xl lg:text-2xl font-bold leading-snug text-[#DC2626]">
                     வார்த்தைகளில் வாழும் உணர்வுகள்.
                   </h2>
                 </>
               ) : (
                 <>
-                  <h2 className="font-serif text-base sm:text-xl lg:text-2xl font-bold leading-snug text-slate-900">
+                  <h2 className="font-serif text-sm sm:text-xl lg:text-2xl font-bold leading-snug text-slate-900">
                     WORLDS BORN IN WRITING.
                   </h2>
-                  <h2 className="font-serif text-base sm:text-xl lg:text-2xl font-bold leading-snug text-[#DC2626]">
+                  <h2 className="font-serif text-sm sm:text-xl lg:text-2xl font-bold leading-snug text-[#DC2626]">
                     EMOTIONS LIVING IN WORDS.
                   </h2>
                 </>
               )}
-              <div className="w-12 h-[2.5px] bg-[#DC2626] mt-1" />
+              <div className="w-10 sm:w-12 h-[2.5px] bg-[#DC2626] mt-1" />
             </div>
 
             {/* Author Name Heading */}
             <div className="space-y-0 pt-1">
-              <h1 className="font-serif font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-[0.9] text-slate-900 uppercase">
+              <h1 className="font-serif font-black text-2xl sm:text-4xl lg:text-5xl tracking-tight leading-[0.9] text-slate-900 uppercase">
                 {language === 'ta' ? 'ராகுல்' : 'RAHUL'}
               </h1>
-              <h1 className="font-serif font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-[0.9] text-[#DC2626] uppercase">
+              <h1 className="font-serif font-black text-2xl sm:text-4xl lg:text-5xl tracking-tight leading-[0.9] text-[#DC2626] uppercase">
                 {language === 'ta' ? 'செபாஸ்டியன்' : 'SEBASTIAN'}
               </h1>
-              <div className="pt-1 text-[9px] sm:text-[10px] font-mono tracking-[0.18em] text-[#DC2626] font-extrabold uppercase">
+              <div className="pt-1 text-[8px] sm:text-[10px] font-mono tracking-[0.18em] text-[#DC2626] font-extrabold uppercase">
                 {language === 'ta'
                   ? 'எழுத்தாளர்  ·  கவிஞர்  ·  ஈரோடு'
                   : 'WRITER  ·  POET  ·  ERODE'}
@@ -115,7 +115,7 @@ export const HomePage: React.FC = () => {
             <div className="flex flex-wrap items-center gap-2 pt-0.5">
               <RouterLink
                 to="/books"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#DC2626] text-white font-sans text-xs font-bold tracking-wide hover:bg-[#B91C1C] transition-all shadow-md hover:scale-105"
+                className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#DC2626] text-white font-sans text-xs font-bold tracking-wide hover:bg-[#B91C1C] transition-all shadow-md"
               >
                 <span>{language === 'ta' ? 'படைப்புகளைப் பார்க்க' : 'Explore My Works'}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -123,18 +123,18 @@ export const HomePage: React.FC = () => {
 
               <RouterLink
                 to="/writings"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-900 text-slate-900 bg-white/90 backdrop-blur-xs font-sans text-xs font-bold tracking-wide hover:bg-slate-900 hover:text-white transition-all shadow-xs hover:scale-105"
+                className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-slate-900 text-slate-900 bg-white/90 backdrop-blur-xs font-sans text-xs font-bold tracking-wide hover:bg-slate-900 hover:text-white transition-all shadow-xs"
               >
                 <span>{language === 'ta' ? 'கவிதைகளைப் படிக்க 📖' : 'Read My Poems 📖'}</span>
               </RouterLink>
             </div>
 
             {/* Signature & Motto Bar */}
-            <div className="pt-2 border-t border-slate-200 flex items-center justify-between gap-2 text-[10px] font-mono text-slate-600 max-w-xs sm:max-w-sm">
-              <span className="font-serif italic text-sm sm:text-base font-bold text-[#DC2626]">
+            <div className="pt-2 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 text-[9px] sm:text-[10px] font-mono text-slate-600 max-w-xs sm:max-w-sm">
+              <span className="font-serif italic text-xs sm:text-base font-bold text-[#DC2626]">
                 {language === 'ta' ? 'ராகுல் செபாஸ்டியன் (ஈரோடு)' : 'Rahul Sebastian (Erode)'}
               </span>
-              <span className="tracking-widest font-bold uppercase text-[8px]">
+              <span className="tracking-widest font-bold uppercase text-[7px] sm:text-[8px]">
                 BETTER WORDS • BRIGHTER TOMORROW
               </span>
             </div>
@@ -258,11 +258,11 @@ export const HomePage: React.FC = () => {
             </p>
           </div>
 
-          <div className="font-serif text-xl sm:text-3xl md:text-4xl text-white font-bold leading-relaxed whitespace-pre-line italic tracking-wide p-6 border-l-4 border-[#DC2626] bg-slate-900/90 rounded text-left my-4 shadow-2xl">
+          <div className="font-serif text-lg sm:text-3xl md:text-4xl text-white font-bold leading-relaxed whitespace-pre-line italic tracking-wide p-4 sm:p-6 border-l-4 border-[#DC2626] bg-slate-900/90 rounded text-left my-4 shadow-2xl">
             {sampleWritings[0].contentTa.join('\n')}
           </div>
 
-          <p className="text-[11px] font-mono text-slate-400 uppercase tracking-widest font-bold">
+          <p className="text-[10px] sm:text-[11px] font-mono text-slate-400 uppercase tracking-widest font-bold">
             — ராகுல் செபாஸ்டியன் (ஈரோடு, "எண்ணங்களின் குப்பைக் கூடம்", 2026)
           </p>
 
