@@ -1,0 +1,21 @@
+{
+  "name": "Rahul Sebastian | Author & Poet",
+  "short_name": "Rahul Sebastian",
+  "description": "Official Website of Tamil Author and Poet Rahul Sebastian — Ennangalin Kuppai Koodam",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#DC2626",
+  "icons": [
+    {
+      "src": "/rahul_hero_bg.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/rahul_hero_bg.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
