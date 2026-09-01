@@ -1,12 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe, Feather, BookOpen, User, Award, Mail, Sparkles } from 'lucide-react';
+import { Menu, X, Globe, Feather, BookOpen, User, Award, Mail, Download, Smartphone } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
   const location = useLocation();
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [isInstallable, setIsInstallable] = useState(false);
+
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e: any) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setIsInstallable(true);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
+  }, []);
+
+  const handleInstallPWA = async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') {
+      console.log('[PWA] User accepted install prompt');
+      setIsInstallable(false);
+    }
+    setDeferredPrompt(null);
+  };
 
   const navLinks = [
     { path: '/', label: t('navHome'), icon: Feather },
@@ -40,7 +67,7 @@ export const Navbar: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             <div className="flex items-center gap-6">
               {navLinks.map((link) => (
                 <Link
@@ -60,6 +87,18 @@ export const Navbar: React.FC = () => {
               ))}
             </div>
 
+            {/* PWA App Install Button for Desktop */}
+            {isInstallable && (
+              <button
+                onClick={handleInstallPWA}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-[#DC2626] text-white font-mono text-xs font-extrabold hover:bg-[#B91C1C] transition-all shadow-sm animate-pulse"
+                title="Install Application on Desktop/Mobile"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>{language === 'ta' ? 'ஆப் நிறுவ 📲' : 'INSTALL APP 📲'}</span>
+              </button>
+            )}
+
             {/* Language Toggle Button */}
             <button
               onClick={toggleLanguage}
@@ -71,11 +110,21 @@ export const Navbar: React.FC = () => {
             </button>
           </div>
 
-          {/* Mobile Menu Controls */}
-          <div className="flex items-center gap-3 lg:hidden">
+          {/* Mobile Controls */}
+          <div className="flex items-center gap-2 lg:hidden">
+            {isInstallable && (
+              <button
+                onClick={handleInstallPWA}
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm bg-[#DC2626] text-white font-mono text-[10px] font-extrabold"
+              >
+                <Smartphone className="w-3.5 h-3.5" />
+                <span>INSTALL</span>
+              </button>
+            )}
+
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-slate-100 border border-slate-200 text-slate-900 font-mono text-xs font-bold"
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm bg-slate-100 border border-slate-200 text-slate-900 font-mono text-xs font-bold"
             >
               <Globe className="w-3.5 h-3.5 text-[#DC2626]" />
               <span>{language === 'ta' ? 'EN' : 'தமிழ்'}</span>
@@ -103,13 +152,13 @@ export const Navbar: React.FC = () => {
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`flex items-center gap-3 font-mono text-sm uppercase font-extrabold p-2.5 rounded ${
+                className={`flex items-center gap-3 font-mono text-xs uppercase font-extrabold tracking-wider p-2 rounded-sm transition-colors ${
                   isActive(link.path)
-                    ? 'bg-[#DC2626] text-white'
+                    ? 'bg-red-50 text-[#DC2626]'
                     : 'text-slate-900 hover:bg-slate-100'
                 }`}
               >
-                <Icon className="w-4 h-4" />
+                <Icon className="w-4 h-4 text-[#DC2626]" />
                 <span>{link.label}</span>
               </Link>
             );
