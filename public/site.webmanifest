@@ -1,21 +1,43 @@
 {
   "name": "Rahul Sebastian | Author & Poet",
   "short_name": "Rahul Sebastian",
-  "description": "Official Website of Tamil Author and Poet Rahul Sebastian — Ennangalin Kuppai Koodam",
+  "description": "Official Website & PWA of Tamil Author, Poet & Erode Writer Rahul Sebastian — Ennangalin Kuppai Koodam",
   "start_url": "/",
+  "id": "/",
   "display": "standalone",
+  "orientation": "any",
   "background_color": "#FFFFFF",
   "theme_color": "#DC2626",
+  "categories": ["books", "literature", "lifestyle", "education"],
   "icons": [
     {
       "src": "/rahul_hero_bg.jpg",
       "sizes": "192x192",
-      "type": "image/jpeg"
+      "type": "image/jpeg",
+      "purpose": "any maskable"
     },
     {
       "src": "/rahul_hero_bg.jpg",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Read Books",
+      "short_name": "Books",
+      "url": "/books"
+    },
+    {
+      "name": "Poetry Collection",
+      "short_name": "Poems",
+      "url": "/writings"
+    },
+    {
+      "name": "Contact Rahul",
+      "short_name": "Contact",
+      "url": "/contact"
     }
   ]
 }
