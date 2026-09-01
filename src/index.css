@@ -61,6 +61,30 @@
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0 14px 14px 0;
+  border-width: 0 16px 16px 0;
   border-color: transparent #DC2626 transparent transparent;
+}
+
+/* Drop Cap Styling for Tamil & English */
+.tamil-dropcap::first-letter {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #DC2626;
+  float: left;
+  line-height: 0.9;
+  padding-right: 0.5rem;
+  font-family: 'Georgia', 'Noto Serif Tamil', serif;
+}
+
+/* Hide Netlify Injected Badges, Drawers & Feedback Widgets */
+[data-netlify-badge],
+.netlify-badge,
+#netlify-drawer,
+#netlify-modal,
+iframe[src*="netlify"],
+div[class*="netlify-identity"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
