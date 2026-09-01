@@ -1,4 +1,9 @@
-# Netlify SPA Fallback for React Router
-# Static files in public/ (sitemap.xml, robots.txt, etc.) are served natively first.
+# Direct static files without canonical redirect loop
+/sitemap.xml                   /sitemap.xml                   200!
+/robots.txt                    /robots.txt                    200!
+/google5d7d1795d4d1b88b.html   /google5d7d1795d4d1b88b.html   200!
+/site.webmanifest              /site.webmanifest              200!
+/sw.js                         /sw.js                         200!
 
-/*    /index.html   200
+# SPA React Router fallback
+/*                             /index.html                    200
