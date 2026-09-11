@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Feather, Heart, Mail, Phone } from 'lucide-react';
+import { Feather, Heart, Mail, Phone, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { InstagramIcon } from './SocialIcons';
+import { PrivacyModal } from './PrivacyModal';
 
 export const Footer: React.FC = () => {
   const { language } = useLanguage();
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
 
   return (
-    <footer className="bg-slate-950 text-white border-t-4 border-[#DC2626]">
+    <footer className="bg-slate-950 text-white border-t-4 border-[#DC2626] relative z-10">
+      <PrivacyModal isOpen={isPrivacyOpen} onClose={() => setIsPrivacyOpen(false)} />
+
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start pb-8 border-b border-slate-800">
           
@@ -27,13 +31,13 @@ export const Footer: React.FC = () => {
             </p>
 
             <div className="pt-2 text-xs font-mono text-[#DC2626] uppercase font-bold tracking-wider">
-              {language === 'ta' ? 'எழுத்தாளர் • கவிஞர் • பாடலாசிரியர்' : 'Writer • Poet • Lyricist'}
+              {language === 'ta' ? 'எழுத்தாளர் • கவிஞர் • பாடலாசிரியர் (ஈரோடு)' : 'Writer • Poet • Lyricist (Erode)'}
             </div>
           </div>
 
           <div className="md:col-span-3 space-y-3 font-mono text-xs">
             <span className="text-[10px] text-[#DC2626] uppercase font-extrabold tracking-widest block">
-              QUICK LINKS
+              QUICK NAVIGATION
             </span>
             <ul className="space-y-2 text-slate-300">
               <li>
@@ -76,7 +80,17 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
-          <p>© 2026 Rahul Sebastian. All rights reserved.</p>
+          <div className="flex flex-wrap items-center gap-3">
+            <p>© 2026 Rahul Sebastian. All rights reserved.</p>
+            <span>•</span>
+            <button
+              onClick={() => setIsPrivacyOpen(true)}
+              className="hover:text-[#DC2626] transition-colors text-[11px] underline"
+            >
+              Privacy Policy & Terms
+            </button>
+          </div>
+
           <p className="text-[11px] text-[#DC2626] font-bold">
             Designed by PHANIX TECH
           </p>
