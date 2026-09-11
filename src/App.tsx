@@ -6,6 +6,7 @@ import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 import { CustomCursor } from './components/CustomCursor';
 import { LoadingPage } from './components/LoadingPage';
+import { FloatingCTA } from './components/FloatingCTA';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { WritingsPage } from './pages/WritingsPage';
@@ -24,7 +25,8 @@ export const App: React.FC = () => {
         <LoadingPage />
         <ScrollToTop />
         <CustomCursor />
-        <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-[#FF3B00] selection:text-white">
+        <FloatingCTA />
+        <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-[#DC2626] selection:text-white">
           <Navbar />
           <main className="flex-grow">
             <Routes>
