@@ -7,6 +7,10 @@ import { AuthorPortrait } from '../components/AuthorPortrait';
 import { BookCover3D } from '../components/BookCover3D';
 import { InteractiveBookModal } from '../components/InteractiveBookModal';
 import { QuotesSection } from '../components/QuotesSection';
+import { ReaderReviews } from '../components/ReaderReviews';
+import { InstagramGrid } from '../components/InstagramGrid';
+import { FAQSection } from '../components/FAQSection';
+import { CollaborationsSection } from '../components/CollaborationsSection';
 import { SEO } from '../components/SEO';
 import { sampleWritings } from '../data/writingsData';
 import { sampleBooks } from '../data/booksData';
@@ -31,16 +35,16 @@ export const HomePage: React.FC = () => {
       
       {/* Dynamic SEO Meta Tag Injector */}
       <SEO
-        title="Rahul Sebastian | #1 Tamil Author, Poet & Erode Writer | ராகுல் செபாஸ்டியன் ஈரோடு"
-        description="Official Portfolio of Rahul Sebastian (Rahul Erode / ராகுல் செபாஸ்டியன்) — Renowned Tamil Author, Poet & Best Erode Writer, B.E (EEE) Engineer, World Record Holder. WhatsApp: +91 94881 74434, Instagram: @rahul_sebastian1418."
-        keywords="Rahul Sebastian, Rahul Erode, Rahul Sebastian Erode, Best Erode Writer, ராகுல் செபாஸ்டியன் ஈரோடு, Ennangalin Kuppai Koodam"
+        title="Rahul Erode (Rahul Sebastian) | #1 Tamil Author & Poet Portfolio | ராகுல் ஈரோடு"
+        description="Official Portfolio & Writer Details of Rahul Erode (Rahul Sebastian / ராகுல் ஈரோடு) — Acclaimed Tamil Author, Poet, B.E (EEE) Engineer, World Record Holder, and Author of 'Ennangalin Kuppai Koodam' published by Nerpadapesu Publication. WhatsApp: +91 94881 74434, Instagram: @rahul_sebastian1418."
+        keywords="Rahul Erode, Rahul Erode portfolio, Rahul Erode writer, Rahul Erode Tamil author, Rahul Erode poet, Rahul Sebastian Erode, Rahul Erode WhatsApp 9488174434, Rahul Erode Instagram rahul_sebastian1418, ராகுல் ஈரோடு, ராகுல் செபாஸ்டியன் ஈரோடு"
       />
 
       {/* 3D Book Inspection Modal */}
       <InteractiveBookModal book={selectedModalBook} onClose={() => setSelectedModalBook(null)} />
 
       {/* ========================================================================= */}
-      {/* 1. HERO SECTION (COMPACT & PERFECTLY PROPORTIONED ON MOBILE) */}
+      {/* 1. HERO SECTION */}
       {/* ========================================================================= */}
       <section className="relative min-h-0 sm:min-h-screen bg-white text-slate-900 pt-16 sm:pt-24 pb-6 sm:pb-12 flex items-center overflow-hidden border-b border-slate-200">
         
@@ -365,12 +369,22 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 5. BEST TOPICS & QUOTES */}
+      {/* 5. READER REVIEWS & TESTIMONIALS */}
+      {/* ========================================================================= */}
+      <ReaderReviews />
+
+      {/* ========================================================================= */}
+      {/* 6. INSTAGRAM & SOCIAL MEDIA FEED */}
+      {/* ========================================================================= */}
+      <InstagramGrid />
+
+      {/* ========================================================================= */}
+      {/* 7. BEST TOPICS & QUOTES */}
       {/* ========================================================================= */}
       <QuotesSection />
 
       {/* ========================================================================= */}
-      {/* 6. WRITING JOURNEY */}
+      {/* 8. WRITING JOURNEY */}
       {/* ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-10 md:py-16 space-y-8 bg-white">
         <div className="border-b border-slate-200 pb-4 space-y-1">
@@ -409,7 +423,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 7. AWARDS & ACHIEVEMENTS */}
+      {/* 9. AWARDS & ACHIEVEMENTS */}
       {/* ========================================================================= */}
       <section className="bg-slate-100 py-10 md:py-16 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 space-y-8">
@@ -470,7 +484,17 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 8. CONTACT */}
+      {/* 10. COLLABORATIONS & EVENTS */}
+      {/* ========================================================================= */}
+      <CollaborationsSection />
+
+      {/* ========================================================================= */}
+      {/* 11. FREQUENTLY ASKED QUESTIONS (FAQ) */}
+      {/* ========================================================================= */}
+      <FAQSection />
+
+      {/* ========================================================================= */}
+      {/* 12. DIRECT CONTACT */}
       {/* ========================================================================= */}
       <section className="bg-slate-950 text-white py-14 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
